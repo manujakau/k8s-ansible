@@ -1,0 +1,15 @@
+---
+
+- hosts: localhost
+  vars:
+    env: dev
+  tasks:
+
+  - name: Test ignore error
+    get_url:
+      url: http://manujatest
+    ignore_errors: yes
+
+  - name: After ignore error
+    debug:
+      msg: "error skiped"
