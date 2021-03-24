@@ -1,0 +1,25 @@
+---
+
+- hosts: localhost
+  vars:
+    env: dev
+  tasks:
+
+  - name: Gracefull RollBack
+    block:
+      - debug:
+          msg: "Execute Normal"
+      - name: Force a fail event
+        command: /bin/false
+      - debug:
+          msg: "Execute failed due to above task"
+    rescue:
+      - debug:
+          msg: 'Catch Error'
+      - name: Force a fail in recovery process
+        command: /bin/false
+      - debug:
+          msg: "Never Execute"
+    always:
+      - debug:
+          msg: "Always Execute"
