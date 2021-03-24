@@ -1,0 +1,13 @@
+---
+
+- hosts: localhost
+  tasks:
+
+  - name: register Keyword
+    shell: "find *.txt"
+    args:
+      chdir: "/tmp/demo/"
+    register: demo_output
+
+  - debug:
+      var: demo_output
