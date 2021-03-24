@@ -15,3 +15,11 @@ $ lxc launch images:ubuntu/focal/amd64
 $ lxc list
 $ lxc exec <Name of the Container from lxc list> bash
 ```
+
+Install Ansible
+
+```
+$ sudo apt install software-properties-common -y
+$ sudo apt-add-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible -y
+```
