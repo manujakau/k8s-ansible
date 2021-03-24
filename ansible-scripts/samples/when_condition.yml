@@ -1,0 +1,18 @@
+---
+
+- hosts: localhost
+  vars:
+    env: dev
+  tasks:
+
+  - name: Check Ubuntu System Info
+    file:
+      path: /tmp/UbuntuDistribution
+      state: touch
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Check CentOS System Info
+    file:
+      path: /tmp/CentOS
+      state: touch
+    when: ansible_distribution == "Centos"
