@@ -1,0 +1,13 @@
+---
+
+- hosts: localhost
+  vars:
+    env: dev
+  tasks:
+
+  - name: Loop demo with nested
+    debug:
+      msg: "{{item[0]}}-{{item[1]}}"
+    with_nested:
+      - ['sec-1','sec-2']
+      - ['part-1','part-2','part-3']
