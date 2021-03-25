@@ -1,0 +1,11 @@
+- name: Deploy kubelet json
+  template:
+    src: "k8stemplates.j2"
+    dest: "/tmp/{{ item }}.json"
+    mode: 0640
+  loop:
+    - "{{ k8s_worker1 }}"
+    - "{{ k8s_worker2 }}"
+    - "{{ k8s_worker3 }}"
+  notify:
+    - restart nginx
